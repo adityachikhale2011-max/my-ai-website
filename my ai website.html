@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Universal AI Assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="A multi-purpose AI assistant that helps with writing, design, gaming, studying, and productivity.">
+
+<style>
+body {
+    background: radial-gradient(circle, #020617, #000);
+    font-family: Arial, sans-serif;
+    color: #e5e7eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background: #020617;
+    padding: 25px;
+    border-radius: 18px;
+    width: 380px;
+    box-shadow: 0 0 40px #22c55e;
+}
+
+h1 {
+    text-align: center;
+    color: #22c55e;
+}
+
+p {
+    text-align: center;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+select, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+}
+
+button {
+    background: #22c55e;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+.result {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🤖 Universal AI</h1>
+    <p>Select what you want help with</p>
+
+    <select id="task">
+        <option value="">Choose a task</option>
+        <option value="writing">Writing & Content</option>
+        <option value="design">Design Ideas</option>
+        <option value="gaming">Gaming Help</option>
+        <option value="study">Study & Learning</option>
+        <option value="productivity">Productivity</option>
+    </select>
+
+    <button onclick="runAI()">Ask AI</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function runAI() {
+    const task = document.getElementById("task").value;
+    const result = document.getElementById("result");
+
+    if (!task) {
+        result.innerHTML = "<span style='color:orange'>Please choose a task.</span>";
+        return;
+    }
+
+    let response = "";
+
+    if (task === "writing") {
+        response = "✍️ AI suggests: Use clear structure, simple words, and engaging headlines.";
+    } else if (task === "design") {
+        response = "🎨 AI suggests: Choose a clean layout, 2–3 colors, and consistent fonts.";
+    } else if (task === "gaming") {
+        response = "🎮 AI suggests: Optimize settings, practice aim, and use pro strategies.";
+    } else if (task === "study") {
+        response = "📚 AI suggests: Study in short sessions and revise daily.";
+    } else if (task === "productivity") {
+        response = "⚡ AI suggests: Focus on one task at a time and avoid distractions.";
+    }
+
+    result.innerHTML = `<strong>AI Response:</strong><br>${response}`;
+}
+</script>
+
+</body>
+</html>
